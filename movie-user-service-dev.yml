@@ -1,0 +1,29 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    # 你的服务名称
+    name: movie-user-service
+  datasource:
+    # 核心变更点：外网地址 Host、端口 Port 和 密码 Password
+    # 注意：最后的 /movie_db 是你的数据库名，请确保你已经手动创建了这个库
+    url: jdbc:mysql://dbconn.sealoshzh.site:41683/mysql?characterEncoding=UTF8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: mmqmxh77
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    # 使用 MySQL 8.0 对应的方言
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka # 注册到 8888 端口
+  instance:
+    prefer-ip-address: true # 优先使用 IP 地址注册
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
