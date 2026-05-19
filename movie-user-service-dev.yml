@@ -27,3 +27,9 @@ eureka:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+# 开启所有监控端点（特别是 refresh 端点）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
